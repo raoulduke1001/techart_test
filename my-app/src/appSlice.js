@@ -7,6 +7,8 @@ const defaultState = {
     sizeX: 1,
     sizeY: 1,
     step: 1,
+    result:null,
+    error:null
 };
 export const appSlice = createSlice({
     name: 'app',
@@ -27,7 +29,7 @@ export const appSlice = createSlice({
         setSizeY: (state, action) => {
             state.sizeY = action.payload;
         },
-        setNextStep: (state,) => {
+        setNextStep: state => {
             if (state.step === 1 && state.building === 2) {
                 state.material = 2;
                 state.step = 3;
@@ -42,6 +44,9 @@ export const appSlice = createSlice({
         setReset: state => {
             Object.assign(state, defaultState);
         },
+        setResult: (state, action) => {
+            state.result= action.payload
+        },
     },
 });
 
@@ -52,23 +57,12 @@ export const {
     setSizeX,
     setSizeY,
     setNextStep,
-    setReset
+    setReset,
+    setResult,
+
 } = appSlice.actions;
 
-export const setCalculate = appState => dispatch => {
-    fetch(`https://data.techart.ru/lab/json/?building=${appState.building}&height=${appState.height}&material=${appState.material}&sizex=${appState.sizeX}&sizey=${appState.sizeY}`)
-        .then(res => res.json())
-        .then(
-            (result) => {
-                dispatch(setViewResult(result))
-            },
-            // Примечание: важно обрабатывать ошибки именно здесь, а не в блоке catch(),
-            // чтобы не перехватывать исключения из ошибок в самих компонентах.
-            (error) => {
-                dispatch(setViewError(error))
-            }
-        )
-};
+
 
 export const selectBuilding = state => state.app.building;
 export const selectHeight = state => state.app.height;
@@ -77,5 +71,8 @@ export const selectSizeX = state => state.app.sizeX;
 export const selectSizeY = state => state.app.sizeY;
 export const selectStep = state => state.app.step;
 export const selectAppState = state => state.app;
+export const selectResult = state => state.app.result;
+
+
 
 export default appSlice.reducer;
