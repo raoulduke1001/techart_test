@@ -1,7 +1,20 @@
-.Step2 {
 
+table{
+    width: 30%;
+    border-collapse: collapse;
+    border: 1px solid black;
+}
+.grey{
+    background-color: grey;
+    color:blue;
+    text-align: center;
+}
+.center{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+input{
+    margin: 10px;
 }
 
-.selected {
-    color: green;
-}

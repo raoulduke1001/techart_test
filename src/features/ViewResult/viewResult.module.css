@@ -1,3 +1,26 @@
-.viewResult{
 
+.grey {
+    background-color: grey;
+    color: blue;
+    text-align: center;
+}
+
+.center {
+    display: flex;
+    align-items: center;
+    justify-content: center
+}
+
+table {
+    width: 30%;
+    border-collapse: collapse;
+    border: 1px solid black;
+}
+
+.red {
+    color: red;
+}
+
+.blue {
+    color: blue
 }

@@ -1,7 +1,25 @@
-.Step1 {
 
+table{
+    width: 30%;
+    border-collapse: collapse;
+    border: 1px solid black;
 }
-
+.grey{
+    background-color: grey;
+    color:blue;
+    text-align: center;
+}
+.center{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
 .selected {
     color: green;
+}
+li{
+    text-align: left;
+}
+h5{
+    color: grey;
 }

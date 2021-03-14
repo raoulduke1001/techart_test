@@ -1,6 +1,6 @@
 import React from 'react';
 import {useDispatch, useSelector} from 'react-redux';
-import './App.css';
+import styles from  "./App.module.css"
 
 import {
     selectAppState,
@@ -24,8 +24,8 @@ function App() {
     const result = useSelector(selectResult)
 
     return (
-        <div>
-            <h1>Калькулятор цены конструкций</h1>
+        <div className={styles.App}>
+            <h3>Калькулятор цены конструкций</h3>
             <div>
                 {step === 1 && <Step1/>}
                 {step === 2 && <Step2/>}
@@ -33,7 +33,7 @@ function App() {
                 {step === 4 &&  result===null && <Step4/>}
                 {result && <ViewResult/>}
             </div>
-            {<button onClick={() => dispatch(setReset())}>{result ? "новый расчет" : "отмена"}</button>}
+            {<button onClick={() => dispatch(setReset())}>{result ? "Новый расчет" : "Отмена"}</button>}
 
             {
                 step === 4 ?

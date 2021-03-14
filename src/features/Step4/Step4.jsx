@@ -9,12 +9,25 @@ export function Step4() {
     const sizeY = useSelector(selectSizeY);
 
     return (
-        <div className={styles.Step4}>
-            <div>Шаг 4</div>
-            <div>Размеры</div>
-            <div>
-                <input value={sizeX} type="text" onChange={e => dispatch(setSizeX(Number(e.target.value)))}/>
-                <input value={sizeY} type="text" onChange={e => dispatch(setSizeY(Number(e.target.value)))}/>
+        <div>
+            <h5>Шаг 4</h5>
+            <div className={styles.center}>
+                <table>
+                    <tbody>
+                    <tr>
+                        <th className={styles.grey}><h6>Длина стен(в метрах)</h6></th>
+                    </tr>
+                    <tr>
+                        <th>
+                            <input size={4} value={sizeX} type="text"
+                                   onChange={e => dispatch(setSizeX(Number(e.target.value)))}/>
+                            X
+                            <input size={4} value={sizeY} type="text"
+                                   onChange={e => dispatch(setSizeY(Number(e.target.value)))}/>
+                        </th>
+                    </tr>
+                    </tbody>
+                </table>
             </div>
         </div>
     );

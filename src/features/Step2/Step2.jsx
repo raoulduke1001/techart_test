@@ -8,12 +8,22 @@ export function Step2() {
     const height = useSelector(selectHeight);
 
     return (
-        <div className={styles.Step2}>
-            <div>Шаг2</div>
-            <div>Количество этажей</div>
-            <div>
-                <input value={height} type="text" onChange={e => dispatch(setHeight(Number(e.target.value)))}/>
+        <div >
+            <h5>Шаг 2</h5>
+            <div className={styles.center}>
+            <table>
+                <tbody>
+                <tr>
+                    <th className={styles.grey}><h6>Количество этажей(число):</h6></th>
+                </tr>
+                <tr>
+                    <th><input value={height} type="text" onChange={e => dispatch(setHeight(Number(e.target.value)))}/>
+                    </th>
+                </tr>
+                </tbody>
+            </table>
             </div>
+
         </div>
     );
 }

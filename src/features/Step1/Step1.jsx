@@ -8,20 +8,29 @@ export function Step1() {
     const building = useSelector(selectBuilding);
 
     return (
-        <div className={styles.Step1}>
-            <div>Шаг1</div>
-            <div>Что будем строить</div>
-            <div>
-                <ul>
-                    <li className={building === 1 ? styles.selected : ''} onClick={() => {
-                        dispatch(setBuilding(1))
-                        dispatch(setNextStep())
-                    }}>Жилой дом</li>
-                    <li className={building === 2 ? styles.selected : ''} onClick={() => {
-                        dispatch(setBuilding(2))
-                        dispatch(setNextStep())
-                    }}>Гараж</li>
-                </ul>
+        <div>
+            <h5>Шаг 1</h5>
+            <div className={styles.center}>
+                <table>
+                    <tbody>
+                <tr>
+                    <th className={styles.grey}><h6>Что будем строить</h6></th>
+                </tr>
+                <tr>
+                    <th ><ul>
+                        <li className={building === 1 ? styles.selected : ''} onClick={() => {
+                            dispatch(setBuilding(1))
+                            dispatch(setNextStep())
+                        }}>Жилой дом</li>
+                        <li className={building === 2 ? styles.selected : ''} onClick={() => {
+                            dispatch(setBuilding(2))
+                            dispatch(setNextStep())
+                        }}>Гараж</li> </ul> </th >
+                </tr>
+                    </tbody>
+            </table>
+
+
             </div>
         </div>
     );

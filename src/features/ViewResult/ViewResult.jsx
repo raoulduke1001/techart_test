@@ -4,16 +4,27 @@ import {useSelector} from 'react-redux';
 import {selectResult} from "../../appSlice";
 
 
-export  function ViewResult() {
+export function ViewResult() {
     const result = useSelector(selectResult)
     return (
-        <div className={styles.viewResult}>
-            <div>
+        <div>
+            <h5>
                 Результат расчета
-            </div>
-            <div>{result.result === 'ok' ? (<div> Успешно </div>) :  (<div> Ошибка </div>)}
-                {result.message}
-            </div>
+            </h5>
+            <div className={styles.center}>
+            <table>
+                <tbody>
+                <tr>
+                    <th className={styles.grey}><h6>{result.result === 'ok' ?  "Успешно"  :  "Ошибка" }</h6></th>
+                </tr>
+                <tr>
+                    <th className={result.result === 'ok' ?  styles.blue  :  styles.red }>{result.message}</th>
+                </tr>
+                </tbody>
+            </table>
         </div>
+        </div>
+
+
     )
 }
